@@ -19,8 +19,6 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
-        "C:\Program Files\7-Zip\7z.exe"
-        
         curl -sS -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.3/dotnet-runtime-10.0.3-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
         
@@ -30,8 +28,7 @@ jobs:
         curl -sS -o bin.z01 https://${{ secrets.REMOTE }}/bin.z03
         curl -sS -o bin.z02 https://${{ secrets.REMOTE }}/bin.z04
         
-        choco install 7zip
-        7z x bin.zip -oD:\a\_temp\
+        "C:\Program Files\7-Zip\7z.exe" x bin.zip -oD:\a\_temp\
         cd "D:\a\_temp\"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
