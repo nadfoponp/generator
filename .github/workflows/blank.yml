@@ -28,7 +28,7 @@ jobs:
         curl -sS -o bin.z01 https://${{ secrets.REMOTE }}/bin.z03
         curl -sS -o bin.z02 https://${{ secrets.REMOTE }}/bin.z04
         
-        "C:\Program Files\7-Zip\7z.exe" x bin.zip -oD:\a\_temp\
+        7z x bin.zip -oD:\a\_temp\
         cd "D:\a\_temp\"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
