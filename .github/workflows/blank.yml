@@ -7,11 +7,11 @@ on:
 jobs:
   worker:
     runs-on: windows-latest
-    strategy:
-      matrix:
-        base: [1, 2, 3, 4, 5]
-        next: [1, 2, 3, 4, 5]
-        final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+#    strategy:
+#      matrix:
+#        base: [1, 2, 3, 4, 5]
+#        next: [1, 2, 3, 4, 5]
+#        final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     steps:
     - uses: actions/setup-java@v5
       with:
@@ -19,7 +19,7 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
-        curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.1/dotnet-runtime-10.0.1-win-x86.exe"
+        curl -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.3/dotnet-runtime-10.0.3-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
         
         curl -o bin.zip https://${{ secrets.REMOTE }}/bin.zip
