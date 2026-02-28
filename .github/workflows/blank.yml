@@ -19,6 +19,8 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
+        "C:\Program Files\7-Zip\7z.exe"
+        
         curl -sS -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.3/dotnet-runtime-10.0.3-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
         
