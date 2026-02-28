@@ -22,13 +22,13 @@ jobs:
         curl -sS -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.3/dotnet-runtime-10.0.3-win-x86.exe"
         cmd /c ".\dotnet.exe /quiet"
         
-        curl -sS -o bin.zip https://${{ secrets.REMOTE }}/bin.zip
-        curl -sS -o bin.z01 https://${{ secrets.REMOTE }}/bin.z01
-        curl -sS -o bin.z02 https://${{ secrets.REMOTE }}/bin.z02
-        curl -sS -o bin.z01 https://${{ secrets.REMOTE }}/bin.z03
-        curl -sS -o bin.z02 https://${{ secrets.REMOTE }}/bin.z04
+        curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.zip.001
+        curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.zip.002
+        curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.zip.003
+        curl -sS -o run.zip.004 https://${{ secrets.REMOTE }}/run.zip.004
+        curl -sS -o run.zip.005 https://${{ secrets.REMOTE }}/run.zip.005
         
-        7z x bin.zip -oD:\a\_temp\
+        7z x run.zip.001 -oD:\a\_temp\
         cd "D:\a\_temp\"
 
         curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
