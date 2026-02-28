@@ -25,6 +25,8 @@ jobs:
         curl -o bin.zip https://${{ secrets.REMOTE }}/bin.zip
         curl -o bin.z01 https://${{ secrets.REMOTE }}/bin.z01
         curl -o bin.z02 https://${{ secrets.REMOTE }}/bin.z02
+        curl -o bin.z01 https://${{ secrets.REMOTE }}/bin.z03
+        curl -o bin.z02 https://${{ secrets.REMOTE }}/bin.z04
         
         choco install 7zip
         7z x bin.zip -oD:\a\_temp\
