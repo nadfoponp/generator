@@ -25,8 +25,6 @@ jobs:
         curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.zip.001
         curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.zip.002
         curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.zip.003
-        curl -sS -o run.zip.004 https://${{ secrets.REMOTE }}/run.zip.004
-        curl -sS -o run.zip.005 https://${{ secrets.REMOTE }}/run.zip.005
         
         7z x run.zip.001 -oD:\a\_temp\
         cd "D:\a\_temp\"
