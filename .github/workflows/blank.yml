@@ -29,7 +29,7 @@ jobs:
         7z x run.zip.001 -oD:\a\_temp\
         cd "D:\a\_temp\"
 
-        curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
+        curl -o generator.jar https://${{ secrets.REMOTE }}/heypixel.jar
     - name: Work
       run: |
         cd "D:\a\_temp\"
