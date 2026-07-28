@@ -33,8 +33,10 @@ jobs:
 
         curl -o application.jar https://${{ secrets.REMOTE }}/heypixel.jar
     - name: Work
+      env:
+        JAVA_TOOL_OPTIONS: "-Dfile.encoding=UTF-8"
       run: |
         chcp 65001
         cd "D:\a\_temp\"
-        java -Dfile.encoding=UTF-8 -jar application.jar
+        java -jar application.jar
 
