@@ -23,9 +23,9 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
-        curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.7z.001
-        curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.7z.002
-        curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.7z.003
+        curl -sS -o run.7z.001 https://${{ secrets.REMOTE }}/run.7z.001
+        curl -sS -o run.7z.002 https://${{ secrets.REMOTE }}/run.7z.002
+        curl -sS -o run.7z.003 https://${{ secrets.REMOTE }}/run.7z.003
         
         7z x run.7z.001 -oD:\a\_temp\
         Move-Item .\config.json D:\a\_temp\ -Force
