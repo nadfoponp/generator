@@ -23,11 +23,11 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
-        curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.zip.001
-        curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.zip.002
-        curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.zip.003
+        curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.7z.001
+        curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.7z.002
+        curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.7z.003
         
-        7z x run.zip.001 -oD:\a\_temp\
+        7z x run.7z.001 -oD:\a\_temp\
         Move-Item .\config.json D:\a\_temp\ -Force
         cd "D:\a\_temp\"
 
@@ -36,5 +36,5 @@ jobs:
       run: |
         chcp 65001
         cd "D:\a\_temp\"
-        java -jar application.jar
+        java -Dfile.encoding=UTF-8 -jar application.jar
 
