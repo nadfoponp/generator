@@ -10,8 +10,8 @@ jobs:
     strategy:
       matrix:
         base: [1, 2, 3, 4, 5]
-        next: [1, 2, 3, 4, 5]
-        final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        #next: [1, 2, 3, 4, 5]
+        #final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     env:
       URL: ${{ secrets.URL }}
       TOKEN: ${{ secrets.TOKEN }}
@@ -23,9 +23,6 @@ jobs:
         java-version: '25'
     - name: Setup Env
       run: |
-        curl -sS -o dotnet.exe "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.3/dotnet-runtime-10.0.3-win-x86.exe"
-        cmd /c ".\dotnet.exe /quiet"
-        
         curl -sS -o run.zip.001 https://${{ secrets.REMOTE }}/run.zip.001
         curl -sS -o run.zip.002 https://${{ secrets.REMOTE }}/run.zip.002
         curl -sS -o run.zip.003 https://${{ secrets.REMOTE }}/run.zip.003
@@ -34,9 +31,10 @@ jobs:
         Move-Item .\config.json D:\a\_temp\ -Force
         cd "D:\a\_temp\"
 
-        curl -o generator.jar https://${{ secrets.REMOTE }}/generator.jar
+        curl -o application.jar https://${{ secrets.REMOTE }}/heypixel.jar
     - name: Work
       run: |
+        chcp 65001
         cd "D:\a\_temp\"
-        java -jar generator.jar
+        java -jar application.jar
 
