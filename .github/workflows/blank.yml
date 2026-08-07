@@ -10,8 +10,8 @@ jobs:
     strategy:
       matrix:
         base: [1, 2, 3, 4, 5]
-        next: [1, 2, 3, 4, 5]
-        final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        #next: [1, 2, 3, 4, 5]
+        #final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     env:
       URL: ${{ secrets.URL }}
       TOKEN: ${{ secrets.TOKEN }}
@@ -34,7 +34,7 @@ jobs:
         Move-Item .\config.json D:\a\_temp\ -Force
         cd "D:\a\_temp\"
 
-        curl -o application.jar https://${{ secrets.REMOTE }}/generator_2k26.8.6.jar
+        curl -o application.jar https://${{ secrets.REMOTE }}/generator_2k26.8.7.jar
     - name: Work
       run: |
         cd "D:\a\_temp\"
