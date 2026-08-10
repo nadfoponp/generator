@@ -9,9 +9,9 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        base: [1, 2, 3, 4, 5]
-        next: [1, 2, 3, 4, 5]
-        final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        base: [1] #, 2, 3, 4, 5]
+        #next: [1, 2, 3, 4, 5]
+        #final: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     env:
       URL: ${{ secrets.URL }}
       TOKEN: ${{ secrets.TOKEN }}
@@ -34,9 +34,11 @@ jobs:
         Move-Item .\config.json D:\a\_temp\ -Force
         cd "D:\a\_temp\"
 
+        curl -o mitm.exe https://${{ secrets.REMOTE }}/mitm.exe
         curl -o application.jar https://${{ secrets.REMOTE }}/generator_2k26.8.11.jar
     - name: Work
       run: |
         cd "D:\a\_temp\"
+        Start-Process mitm.exe -ArgumentList "8888 ptlogin.4399.com" -NoNewWindow
         java -jar application.jar
 
