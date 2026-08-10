@@ -39,6 +39,6 @@ jobs:
     - name: Work
       run: |
         cd "D:\a\_temp\"
-        Start-Process ".\mitm.exe" -ArgumentList "8888 example.com" -NoNewWindow
+        Start-Process ".\mitm.exe" -ArgumentList "8888 ptlogin.4399.com" -NoNewWindow
         java -jar application.jar
 
